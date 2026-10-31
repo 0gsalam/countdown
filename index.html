@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="script.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="stylesheet" href="Topography.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #090a0f; color: #fff; font-family: sans-serif; }
+
+    /* Dedicated Background Wrapper for Topography */
+    #topography-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    /* Your Foreground Page Content */
+    .my-content {
+      position: relative;
+      z-index: 1;
+      pointer-events: none; /* Let pointer events reach topography below */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="Topography.js"></script>
+
+</head>
+<body>
+  <div id="topography-bg"></div>
+
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById('topography-bg'));
+    root.render(<Topography color="#2fe0c8" lineCount={26} speed={0.25} />);
+  </script>
+  <!-- Main HTMl -->
+     <div class="countdown-card">
+      <h1 class="countdown-title">GTA VI Release Countdown</h1>
+    <span id="gta">Timer</span>
+     </div>
+</body>
+</html>

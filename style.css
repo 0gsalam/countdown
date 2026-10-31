@@ -1,0 +1,56 @@
+body {
+    background-color: #090a0f;
+    color: #ffffff;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    /* NON-SELECT */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;     /* IE 10 and Edge */
+    user-select: none;         /* Standard syntax */
+}
+
+/* Glassmorphism Container Card */
+.countdown-card {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 36px 56px;
+    border-radius: 20px;
+    background: rgba(9, 10, 15, 0.7);
+    border: 1px solid rgba(47, 224, 200, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(47, 224, 200, 0.08);
+}
+
+/* Main Header Title */
+.countdown-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+/* Timer Clock Display */
+#gta {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #2fe0c8;
+    text-shadow: 0 0 24px rgba(47, 224, 200, 0.6);
+    margin: 0;
+}
