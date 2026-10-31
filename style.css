@@ -1,56 +1,87 @@
-body {
-    background-color: #090a0f;
-    color: #ffffff;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+/* 1. Global Safe Area Reset */
+:root {
+    --bg-dark: #090a0f;
+    --neon-teal: #2fe0c8;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    /* Prevents rubber-banding on iOS touch drag */
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Responsive Flex Layout */
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    /* Handles iOS Dynamic Island and Home Bar safe zones */
+    padding-top: env(safe-area-inset-top, 20px);
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    padding-left: env(safe-area-inset-left, 16px);
+    padding-right: env(safe-area-inset-right, 16px);
     overflow: hidden;
-    
+
     /* NON-SELECT */
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none;     /* IE 10 and Edge */
     user-select: none;         /* Standard syntax */
 }
 
-/* Glassmorphism Container Card */
+/* 3. Glassmorphism Card (Scales smoothly on 6.3" to 6.9" screens) */
 .countdown-card {
     position: relative;
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    padding: 36px 56px;
-    border-radius: 20px;
-    background: rgba(9, 10, 15, 0.7);
+    gap: 12px;
+    width: min(90vw, 440px); /* Responsive width constraint */
+    padding: clamp(20px, 5vh, 36px) clamp(16px, 4vw, 40px);
+    border-radius: 24px;
+    
+    /* Dynamic Frosted Background */
+    background: rgba(9, 10, 15, 0.75);
     border: 1px solid rgba(47, 224, 200, 0.35);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
-    inset 0 0 20px rgba(47, 224, 200, 0.08);
+                inset 0 0 20px rgba(47, 224, 200, 0.08);
+    
+    /* Touch optimization */
+    touch-action: manipulation;
 }
 
-/* Main Header Title */
+/* 4. Sub-title Typography */
 .countdown-title {
-    font-size: 1.25rem;
+    font-size: clamp(0.85rem, 3.5vw, 1.15rem);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: clamp(2px, 1vw, 4px);
     color: rgba(255, 255, 255, 0.85);
     margin: 0;
+    text-align: center;
 }
 
-/* Timer Clock Display */
+/* 5. Fluid Responsive Timer Text */
 #gta {
-    font-size: 3.5rem;
+    /* Uses container-relative fluid sizing for narrow iPhone screens */
+    font-size: clamp(2rem, 8.5vw, 3.5rem);
     font-weight: 800;
-    letter-spacing: 4px;
-    color: #2fe0c8;
-    text-shadow: 0 0 24px rgba(47, 224, 200, 0.6);
+    letter-spacing: 2px;
+    color: var(--neon-teal);
+    text-shadow: 0 0 20px rgba(47, 224, 200, 0.5);
     margin: 0;
+    text-align: center;
+    font-variant-numeric: tabular-nums; /* Keeps numbers aligned as timer updates */
 }
