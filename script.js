@@ -16,10 +16,10 @@ function updateCounter() {
     const minute = String(Math.floor(dif / (1000 * 60) % 60)).padStart(2, '0');
     const second = String(Math.floor(dif / 1000 % 60)).padStart(2, '0');
     
-    console.log(`${second} seconds`); 
-    console.log(`${minute} minutes`);
-    console.log(`${hours} hours`);
-    console.log(`${day} days`);
+    // console.log(`${second} seconds`); 
+    // console.log(`${minute} minutes`);
+    // console.log(`${hours} hours`);
+    // console.log(`${day} days`);
 
     //Updating the HTML element
     document.getElementById('gta').textContent = `${day}:${hours}:${minute}:${second}`;
