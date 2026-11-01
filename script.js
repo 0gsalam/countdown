@@ -1,29 +1,31 @@
+//Calculation the time from ms to real time
+function timeToDate(time){
+    const day = Math.floor(time / (1000 * 60 * 60) / 24);
+    const hours = String(Math.floor(time / (1000 * 60 * 60) % 24)).padStart(2, '0');
+    const minute = String(Math.floor(time / (1000 * 60) % 60)).padStart(2, '0');
+    const second = String(Math.floor(time / 1000 % 60)).padStart(2, '0');
+
+    const format = `${day}:${hours}:${minute}:${second}`;
+    return format;
+}
+//The update of the countdown
 function updateCounter() {
     //Constants of the timers
     const now = new Date();
     const gtavi = new Date(2026,10,19,0,0,0);
-    const dif = gtavi - now;
+    const download = new Date(2026,10,12,0,0,0);
 
     //Checks if the game is released
-    if(dif <= 0)
+    if((gtavi - now) <= 0)
     {
         document.getElementById('gta').textContent = 'Released!';
         return 0;   
     }
-    //Calculating time
-    const day = Math.floor(dif / (1000 * 60 * 60) / 24);
-    const hours = String(Math.floor(dif / (1000 * 60 * 60) % 24)).padStart(2, '0');
-    const minute = String(Math.floor(dif / (1000 * 60) % 60)).padStart(2, '0');
-    const second = String(Math.floor(dif / 1000 % 60)).padStart(2, '0');
-    
-    // console.log(`${second} seconds`); 
-    // console.log(`${minute} minutes`);
-    // console.log(`${hours} hours`);
-    // console.log(`${day} days`);
 
-    //Updating the HTML element
-    document.getElementById('gta').textContent = `${day}:${hours}:${minute}:${second}`;
+    document.getElementById('gta').textContent = timeToDate(gtavi-now);
+    document.getElementById('download').textContent = timeToDate(download - now);
 }
+
 
 //1. Run
 updateCounter();

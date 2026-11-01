@@ -73,6 +73,12 @@ body {
     text-align: center;
 }
 
+.countdown-title.small {
+    font-size: clamp(14px, 3.5vh, 20px);
+    opacity: 0.85;
+    letter-spacing: 0.08em;
+}
+
 /* 5. Fluid Responsive Timer Text */
 #gta {
     /* Uses container-relative fluid sizing for narrow iPhone screens */
@@ -84,4 +90,62 @@ body {
     margin: 0;
     text-align: center;
     font-variant-numeric: tabular-nums; /* Keeps numbers aligned as timer updates */
+}
+
+/* 6. Second Fluid Responsive Timer Text */
+#download {
+    /* Uses container-relative fluid sizing for narrow iPhone screens */
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--neon-teal);
+    text-shadow: 0 0 20px rgba(47, 224, 200, 0.5);
+    margin: 0;
+    text-align: center;
+    font-variant-numeric: tabular-nums; /* Keeps numbers aligned as timer updates */
+    opacity: 0.85;
+}
+
+/* 3. Glassmorphism Card (Scales smoothly on 6.3" to 6.9" screens) */
+.countdown-card-download {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: min(85vw, 320px); /* Responsive width constraint */
+    padding: clamp(12px, 3vh, 20px) clamp(12px, 3vw, 24px);
+    border-radius: 16px;
+    
+    /* Dynamic Frosted Background */
+    background: rgba(9, 10, 15, 0.75);
+    border: 1px solid rgba(47, 224, 200, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6),
+                inset 0 0 12px rgba(47, 224, 200, 0.08);
+    
+    /* Touch optimization */
+    touch-action: manipulation;
+}
+
+/* Compact Overrides ONLY for Mobile Screens */
+@media (max-width: 600px) {
+    .countdown-card-download {
+        width: min(80vw, 295px);
+        padding: clamp(8px, 2vh, 12px) clamp(10px, 2.5vw, 16px);
+        /* gap: 4px; */
+        /* border-radius: 12px; */
+    }
+
+    .countdown-card-download .countdown-title.small {
+        font-size: clamp(13px, 3.8vw, 14px);
+        /* letter-spacing: 0.05em; */
+    }
+
+    #download {
+        font-size: clamp(1.2rem, 8vw, 1.6rem);
+    }
 }
