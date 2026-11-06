@@ -13,7 +13,7 @@ function updateCounter() {
     //Constants of the timers
     const now = new Date();
     const gtavi = new Date(2026,10,19,0,0,0);
-    const download = new Date(2026,10,12,0,0,0);
+    const download = new Date(2026,10,10,0,0,0);
 
     //Checks if the game is released
     if((gtavi - now) <= 0)
