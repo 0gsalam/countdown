@@ -18,13 +18,24 @@ function updateCounter() {
     //Checks if the game is released
     if((gtavi - now) <= 0)
     {
-        document.getElementById('gta').textContent = 'Released!';
-        return 0;   
+        document.getElementById('gta').textContent = 'Released!';  
+    }
+    else
+    {
+        document.getElementById('gta').textContent = timeToDate(gtavi-now);    
     }
 
-    document.getElementById('gta').textContent = timeToDate(gtavi-now);
-    document.getElementById('download').textContent = timeToDate(download - now);
+    if((download - now) <= 0)
+    {
+        document.getElementById('download').textContent = 'Ready to Download';
+    }
+    else 
+    {
+        document.getElementById('download').textContent = timeToDate(download - now);
+    }
+    return 0;
 }
+
 
 
 //1. Run
